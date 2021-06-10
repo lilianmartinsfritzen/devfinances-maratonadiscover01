@@ -25,21 +25,21 @@
                     <span>Entradas</span>
                     <img src="./assets/income.svg" alt="Imagem de Entradas">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ 5.000,00</p>
             </div>
             <div class="card">
                 <h3>
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="Imagem de Saídas">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expenseDisplay">R$ 2.000,00</p>
             </div>
             <div class="card total">
                 <h3>
                     <span>Total</span>
                     <img src="./assets/total.svg" alt="Imagem de Total">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay">R$ 3.000,00</p>
             </div>
         </section>
 
@@ -58,30 +58,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="description">Luz</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">05/06/2021</td>
-                        <td>
-                            <img src="./assets/minus.svg" alt="Remover transação">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="description">Criação de website</td>
-                        <td class="income">R$ 5.000,00</td>
-                        <td class="date">05/06/2021</td>
-                        <td>
-                            <img src="./assets/minus.svg" alt="Remover transação">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="description">Internet</td>
-                        <td class="expense">- R$ 200,00</td>
-                        <td class="date">05/06/2021</td>
-                        <td>
-                            <img src="./assets/minus.svg" alt="Remover transação">
-                        </td>
-                    </tr>
                 </tbody>
 
             </table>
@@ -94,8 +70,8 @@
                 <h2>Nova Transação</h2>
                 <form action="">
                     <div class="input-group">
-                        <label class="sr-only" for="write">Descrição</label>
-                        <input type="text" id="write" name="write" placeholder="Descrição">                    
+                        <label class="sr-only" for="description">Descrição</label>
+                        <input type="text" id="description" name="description" placeholder="Descrição">                    
                     </div>
                     <div class="input-group">
                         <label class="sr-only" for="amount">Valor</label>
@@ -111,29 +87,14 @@
                         <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
                         <button>Salvar</button>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
     <footer>DevFinance$</footer>
 
-    <script>
-        const Modal = {
-            open(){
-                // Abrir o modal
-                // Adicionar a class active ao modal
-                document.querySelector('.modal-overlay')
-                .classList.add('active')
-            },
-            close(){
-                // Fechar o modal
-                // ARemover a class active do modal
-                document.querySelector('.modal-overlay')
-                .classList.remove('active')
-            }
-        }
-    </script>
+    <script src="./script.js"></script>
+    
 </body>
 
 </html>
