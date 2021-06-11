@@ -7,14 +7,27 @@ const Modal = {
     },
     close(){
         // Fechar o modal
-        // ARemover a class active do modal
+        // Remover a class active do modal
         document.querySelector('.modal-overlay')
         .classList.remove('active')
     }
 }
 
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem("dev.finances:transactions")) ||
+        []
+    },
+
+    set(transactions) {
+        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
+    }
+}
+
 const Transaction = {
-    all: [
+    all: Storage.get(),
+
+    /*all: [
         {
             description: 'Luz',
             amount: -50001,
@@ -35,7 +48,7 @@ const Transaction = {
             amount: 200000,
             date: '05/01/2021'
         },
-    ],
+    ],*/
 
     add(transaction){
         Transaction.all.push(transaction)
@@ -211,11 +224,11 @@ const Form = {
 const App = {
     init() {
 
-        Transaction.all.forEach((transaction, index) => {
-            DOM.addTransaction(transaction, index)
-        })
+        Transaction.all.forEach(DOM.addTransaction)
         
         DOM.updateBalance()
+
+        Storage.set(Transaction.all)
 
     },
     reload() {
